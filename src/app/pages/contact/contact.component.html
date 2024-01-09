@@ -1,0 +1,132 @@
+<div class="container">
+	<div class=" text-center mt-5 ">
+
+		<h1 >تسـجيـــــل   جهــاز   </h1>
+			
+		
+	</div>
+
+
+<div class="row ">
+  <div class="col-lg-7 mx-auto">
+	<div class="card mt-2 mx-auto p-4 bg-light">
+		<div class="card-body bg-light">
+   
+		<div class = "container">
+		 <form #newdevice="ngForm" (ngSubmit)="PostDevice(newdevice)">
+
+			
+
+			<div class="input-group mb-3">
+
+                <label for="device" class="input-group-text">نوع الجهاز</label>
+					<select  class="form-control" ngModel id="device" name="deviceTypeId"   >
+						<option  value="" disabled selected >اختر... </option>
+						<option *ngFor="let d of Types"  [value]="d.id">{{d.deviceName}}</option>
+						
+					</select>
+					
+				</div>
+		
+				<div class="input-group mb-3">
+					<label  class="input-group-text" >  موديل الجهاز</label>
+					<input   style="width:260px;border:none;" class="form-control" ngModel name="deviceModel"  />
+
+				</div>
+				
+				<div class="input-group mb-3">
+					<label  class="input-group-text" >  السيريال</label>
+					<input   style="width:260px;border:none;" class="form-control" placeholder="أدخل السيريال " ngModel name="serialNo" #Serial="ngModel"  />
+					<!-- <div class="my-3 alert alert-danger " *ngIf="Serial.invalid && newdevice.submitted">
+						<li *ngIf="Serial.errors?.['required']">فين السيريال؟</li>
+
+					</div> -->
+				</div>				
+				
+				<div class="input-group mb-3">
+					<label  class="input-group-text" >  اسم صاحب الجهاز</label>
+					<input   style="width:260px;border:none;" class="form-control" ngModel name="empName" />
+				</div>	
+				<div class="input-group mb-3">
+					<label  class="input-group-text" >  رقم التليفون</label>
+					<input   style="width:260px;border:none;" class="form-control" #phonenum="ngModel" ngModel name="mobilePhone" required maxlength="11" minlength="11"/>
+					<!-- <div class="my-3 alert alert-danger " *ngIf="phonenum.invalid && newdevice.submitted">
+						<li *ngIf="phonenum.errors?.['required']">الرقم غير صحيح </li>
+
+					</div> -->
+				</div>	
+				<div class="input-group mb-3">
+
+					<label for="branch" class="input-group-text"> الفرع</label>
+						<select  class="form-control" [(ngModel)]="Branchid" id="branch" name="branchId"  >
+							<option  value="" disabled selected >اختر... </option>
+							<option *ngFor="let b of Branches"  [value]="b.branchID">{{b.branchName}}</option>
+							
+						</select>
+						
+					</div>
+					<div class="input-group mb-3">
+
+						<label for="department" class="input-group-text"> الإدارة</label>
+							<select  class="form-control" [(ngModel)]="departmentid" id="deptId" name="deptId"   >
+								<option  value="" disabled selected >اختر... </option>
+								<option *ngFor="let d of departments"  [value]="d.id">{{d.deptName}}</option>
+								
+							</select>
+							
+						</div>
+
+				<!-- <div style="display: flex; margin: 30px; ">
+				 <div  class="form-check">
+					<label class="form-check-label" for="yeschoice">جهاز جديد </label>
+						
+					<input class="form-check-input" ngModel  type="radio"  name="newOrOld" id="yeschoice" [value]="true"  >
+					
+				</div>
+				
+					<div  class="form-check">
+					   <label class="form-check-label" for="nochoice">صيانة  </label>
+						   
+					   <input class="form-check-input" ngModel  type="radio"  name="newOrOld" id="nochoice" [value]="false"  >
+					   
+				   </div>
+				  
+				</div> -->
+				<div class="input-group mb-3">
+
+					<label for="device" class="input-group-text">اسم مستلم الجهاز </label>
+						<select  class="form-control" [(ngModel)]="itempid" id="device" name="itId"   >
+							<option  value="" disabled selected >اختر... </option>
+							<option *ngFor="let e of itemps"  [value]="e.id">{{e.itName}}</option>
+							
+						</select>
+						
+					</div>
+			
+				<div class="col-md-12">
+					
+					<input type="submit" class="btn  btn-send 
+						" value="تسجــيل "  >
+				
+			</div>
+
+				<h4 class="alert-heading">{{ msg }}</h4>
+				
+			
+			
+
+
+	 </form>
+	</div>
+		</div>
+
+
+</div>
+	<!-- /.8 -->
+
+</div>
+<!-- /.row-->
+
+</div>
+</div>
+

@@ -1,0 +1,71 @@
+    
+<section class="intro">
+  
+    <div class="bg-image h-100" style="background-color: #f5f7fa; ">
+      <div class="h2">
+        <h2  >اجهزة شركة الضمان  </h2>
+    </div>
+      <div class="mask d-flex align-items-center h-100" style="width: 95%; margin: auto;">
+        
+        <div class="containerr">
+          
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                    <table class="table table-striped mb-0">
+                      <thead style="background-color: #002d72;">
+                        <tr>
+                          <th scope="col">رقم السريال </th>
+                          <th scope="col"> الفرع </th>
+                          <th scope="col"> الإدارة </th>
+                          <th scope="col"> صاحب الجهاز </th>
+                          <th scope="col"> رقم صاحب الجهاز </th>
+                          <th scope="col">تاريخ التسليم للشركة</th>
+                          <th scope="col">اسم المسلم للشركة</th>
+                          <th scope="col">تاريخ الرجوع من الشركة</th>
+                          <th scope="col">اسم المستلم من الشركة </th>
+                          <th scope="col">اسم شركة الضمان     </th>
+                          <th scope="col">  تم التسليم للموظف     </th>
+                          <th scope="col">تاريخ التسليم للموظف  </th>
+                          <th scope="col">رقم الموظف المستلم     </th>
+                          <th scope="col">اسم المسلم للموظف    </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let device of apidata">
+                          <td>{{device.serial_No}}</td>
+                          <td>{{device.branchName}}</td>
+                          <td>{{device.departmentName}}</td>
+                          <td>{{device.deviceOwner}}</td>
+                          <td>{{device.deviceOwnerMobilePhone}}</td>
+                          <td>{{device.companyDelivaryDate}}</td>
+                          <td>{{device.itNameToCompany}}</td>
+                          <td>{{device.companyReturnedDate}}</td>
+                          <td>{{device.itNameFormCompany}}</td>
+                          <td>{{device.warrantyCompanyName}}</td>
+                          
+                          <td>{{device.deliverToEmployeeStatus}}</td>
+                          <td>{{device.employeeDeliverDate}}</td>
+                          <td>{{device.employeePhoneNumber}}</td>
+                          <td>{{device.itNameToEmployee}}</td>
+                          
+                          <td class="text-center">
+                            <button class="btn btn-outline-primary btn-xs">Edit</button>
+                          </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

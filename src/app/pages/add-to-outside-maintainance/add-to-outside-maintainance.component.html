@@ -1,0 +1,209 @@
+<div class="container">
+
+
+<div class="row ">
+  <div class="col-lg-7 mx-auto">
+	<div class="card mt-2 mx-auto p-4 bg-light">
+		<div class="card-body bg-light">
+   
+		<div class = "container">
+		 <form #newdevice="ngForm" (ngSubmit)="PostOUTMaintainanceDevice(newdevice)" >
+
+					
+            
+
+			<div class="input-group mb-3">
+
+                <div class="input-group mb-3">
+                    <label  class="input-group-text" >  السيريال</label>
+                    <input   style="width:260px;border:none;" class="form-control" ngModel name="serial_No"/>
+                </div>	
+               
+            </div> 
+            <div class="input-group mb-3">
+            <label for="device" class="input-group-text">نوع الجهاز</label>
+            <select  class="form-control" ngModel id="device" name="deviceTypeId"   >
+                <option  value="" disabled selected >اختر... </option>
+                <option *ngFor="let d of Types"  [value]="d.id">{{d.deviceName}}</option>
+                
+            </select>
+            
+        </div>
+        <div class="input-group mb-3">
+            <label  class="input-group-text" >  اسم صاحب الجهاز</label>
+            <input   style="width:260px;border:none;" class="form-control" ngModel name="deviceOwner" />
+        </div>	
+        <div class="input-group mb-3">
+            <label  class="input-group-text" >  رقم التليفون</label>
+            <input   style="width:260px;border:none;" class="form-control" #phonenum="ngModel" ngModel name="deviceOwnerMobilePhone" required maxlength="11" minlength="11"/>
+            <!-- <div class="my-3 alert alert-danger " *ngIf="phonenum.invalid && newdevice.submitted">
+                <li *ngIf="phonenum.errors?.['required']">الرقم غير صحيح </li>
+
+            </div> -->
+        </div>	
+        <div class="input-group mb-3">
+
+            <label for="branch" class="input-group-text"> الفرع</label>
+                <select  class="form-control" [(ngModel)]="Branchid" id="branch" name="branchId"  >
+                    <option  value="" disabled selected >اختر... </option>
+                    <option *ngFor="let b of Branches"  [value]="b.branchID">{{b.branchName}}</option>
+                    
+                </select>
+                
+            </div>
+            <div class="input-group mb-3">
+
+                <label for="department" class="input-group-text"> الإدارة</label>
+                    <select  class="form-control" [(ngModel)]="departmentid" id="deptId" name="deptId"   >
+                        <option  value="" disabled selected >اختر... </option>
+                        <option *ngFor="let d of departments"  [value]="d.id">{{d.deptName}}</option>
+                        
+                    </select>
+                    
+                </div>
+                <div class="input-group mb-3">
+
+                    <label for="device" class="input-group-text">اسم مستلم الجهاز من الموظف </label>
+                        <select  class="form-control" [(ngModel)]="itempid" id="device" name="itIdFromEmployee"   >
+                            <option  value="" disabled selected >اختر... </option>
+                            <option *ngFor="let e of itemps"  [value]="e.id">{{e.itName}}</option>
+                            
+                        </select>
+                        
+                    </div>
+               
+                <div class="input-group mb-3">
+					<label  class="input-group-text" >     تاريخ التسليم للشركة</label>
+					<input type="date"  style="width:260px;border:none;" class="form-control" ngModel name="companyDelivaryDate" />
+
+				</div>
+                <div class="input-group mb-3">
+
+                    <label for="device" class="input-group-text">  اسم المسلم للشركة</label>
+                        <select  class="form-control" ngModel id="device" name="itIdToCompany"  >
+                            <option *ngFor="let e of itemps"  [value]="e.id">{{e.itName}}</option>
+                            <!-- <option *ngFor="let d of Types"  [value]="d.id">{{d.deviceName}}</option> -->
+                            
+                        </select>
+                    </div>
+                        <div class="input-group mb-3">
+                            <label  class="input-group-text" >     تاريخ الرجوع من للشركة</label>
+                            <input  type="date" style="width:260px;border:none;" class="form-control" ngModel name="companyReturnedDate" />
+        
+                        </div>
+                        <div class="input-group mb-3">
+        
+                            <label for="device" class="input-group-text">  اسم المستلم من الشركة</label>
+                                <select  class="form-control" ngModel id="device" name="itIdFormCompany"  >
+                                    <option *ngFor="let e of itemps"  [value]="e.id">{{e.itName}}</option>
+                                    <!-- <option *ngFor="let d of Types"  [value]="d.id">{{d.deviceName}}</option> -->
+                                    
+                                </select>
+                            </div>
+                        <div class="input-group mb-3">
+                            <label  class="input-group-text" >وصف المشكلة</label>
+                            <input   style="width:260px;border:none;" class="form-control" ngModel name="sloutionDescribtion" />
+        
+                        </div>
+
+                       
+                            <input hidden   name="dsId"  [ngModel]="2"/>
+                            <!-- <div class="input-group mb-3">
+
+                                <label for="device" class="input-group-text">    نوع الصيانة </label>
+                                    <select  class="form-control" [(ngModel)]="itempid" id="device" name="dsId"   >
+                                        <option  value="" disabled selected >اختر... </option>
+                                        <option *ngFor="let e of status"  [value]="e.id">{{e.deviceStatus1}}</option>
+                                        
+                                    </select>
+                                    
+                                </div> -->
+                     
+
+                        <div style="display: flex; margin: 30px; ">
+                            <div  class="form-check">
+                               <label class="form-check-label" for="yeschoice">جزء من الجهاز  </label>
+                                   
+                               <input class="form-check-input" ngModel  type="radio"  name="deviceDeliveredCompletelyToCompany" id="yeschoice" [value]="false"  >
+                               
+                           </div>
+                           
+                               <div  class="form-check">
+                                  <label class="form-check-label" for="nochoice"> الجهاز بالكامل   </label>
+                                      
+                                  <input class="form-check-input" ngModel  type="radio"  name="deviceDeliveredCompletelyToCompany" id="nochoice" [value]="true"  >
+                                  
+                              </div>
+                             
+                           </div>
+
+ 
+                        <div class="input-group mb-3">
+                            <label  class="input-group-text" >     الجزء اللى راح الشركة</label>
+                            <input   style="width:260px;border:none;" class="form-control" ngModel name="whatWasDeliveredToCompany" />
+        
+                        
+                            <div style="display: flex; margin: 40px; ">
+                                <div  class="form-check">
+                                   <label class="form-check-label" for="yeschoice">  تم التسليم للموظف  </label>
+                                       
+                                   <input class="form-check-input" ngModel  type="radio"  name="deliverToEmployeeStatus" id="yeschoice" [value]="true"  >
+                                   
+                               </div>
+                               
+                                   <div  class="form-check">
+                                      <label class="form-check-label" for="nochoice">  مازال بالمكتب   </label>
+                                          
+                                      <input class="form-check-input" ngModel  type="radio"  name="deliverToEmployeeStatus" id="nochoice" [value]="false"  >
+                                      
+                                  </div>
+                                 
+                               </div>
+                        <div class="input-group mb-3">
+                            <label  class="input-group-text" >   تاريخ التسليم للموظف</label>
+                            <input type="date"  style="width:260px;border:none;" class="form-control" ngModel name="employeeDeliverDate" />
+        
+                        </div>
+                        <div class="input-group mb-3">
+                            <label  class="input-group-text" >   رقم الموظف المستلم</label>
+                            <input   style="width:260px;border:none;" class="form-control" ngModel name="employeePhoneNumber" />
+        
+                        </div>
+
+                        <div class="input-group mb-3">
+        
+                            <label for="device" class="input-group-text">  اسم المسلم  للموظف</label>
+                                <select  class="form-control" ngModel id="device" name="itIdToEmployee"  >
+                                    <option *ngFor="let e of itemps"  [value]="e.id">{{e.itName}}</option>
+                                    <!-- <option *ngFor="let d of Types"  [value]="d.id">{{d.deviceName}}</option> -->
+                                    
+                                </select>
+                            </div>
+                            
+
+
+
+				<div class="col-md-12">
+					
+					<input type="submit" class="btn btn-success btn-send 
+						" value="تسجـــيل " >
+                        <h4 class="alert-heading">{{ msg }}</h4>
+
+			</div>
+
+        </div>
+
+	 </form>
+	</div>
+		</div>
+
+
+</div>
+	<!-- /.8 -->
+
+</div>
+<!-- /.row-->
+
+</div>
+</div>
+

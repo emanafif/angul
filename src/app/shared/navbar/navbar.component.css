@@ -1,0 +1,12 @@
+.navbar{
+    direction: rtl;
+    
+    background-color: rgb(47, 96, 67);
+    height: 130px;
+}
+a{
+    color: aliceblue;
+}
+.nav-link {
+    margin-left: 20px;
+}

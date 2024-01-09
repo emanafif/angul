@@ -1,0 +1,32 @@
+
+<div class="container  ">
+<table id="customers" dir="rtl">
+
+
+    
+    <tr>
+        <th scope="col">رقم السريال </th>
+        <th scope="col"> نوع الجهاز </th>
+        <th scope="col"> الموديل </th>
+        <th scope="col"> صاحب الجهاز </th>
+        <th scope="col"> رقم صاحب الجهاز </th>
+        <th scope="col"> الفرع </th>
+        <th scope="col">  الإدارة</th>
+        <th scope="col">   IT man</th>
+      
+    </tr>
+    <tr *ngFor="let device of apidata">
+        <td>{{device.serialNo}}</td>
+        <td>{{device.deviceName}}</td>
+        <td>{{device.deviceModel}}</td>
+        <td>{{device.empName}}</td>
+        <td>{{device.mobilePhone}}</td>
+        <td>{{device.branchName}}</td>
+        <td>{{device.deptName}}</td>
+        <td>{{device.itName}}</td>
+     
+    </tr>
+    
+  </table>
+  <div type="button" class="btn " routerLink="/">تسجيل جهاز </div>
+</div>

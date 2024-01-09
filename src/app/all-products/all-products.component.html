@@ -1,0 +1,19 @@
+<div class="container my-5">
+    <div class="row" *ngIf="errormsg==''">
+        <input placeholder="SEARCH" class="form-control"  [(ngModel)]="searchkey"  (input)="filterdata()">
+ <div [className]="'col-4'" *ngFor="let p of filtereddata">
+
+    <div class="m-2 border-3">
+        <img [src]="p.thumbnail" class="img-fluid">
+        <h3 class="text-primary">{{p.title}}</h3>
+        <BUtton class="btn btn-primary" routerLink="/products/{{p.id}}">Read more</BUtton>
+    </div>
+
+    </div>
+    
+    <div class="alert alert-danger" *ngIf="errormsg!=''">
+        {{errormsg}}
+    </div>
+ </div>
+
+</div>
